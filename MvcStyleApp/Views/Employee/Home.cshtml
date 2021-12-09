@@ -1,0 +1,79 @@
+﻿@model MvcStyleApp.Models.Employee
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Employee/_EmployeeLayout.cshtml";
+}
+
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+          
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    @using (Html.BeginForm("Home", "Employee", FormMethod.Post))
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 style="text-align:center;color:black">Employee Registration</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Employee FirstName : @Html.TextBoxFor(e => e.EmployeeFirstName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(e => e.EmployeeFirstName, "", new { @class = "bg-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                Employee LastName : @Html.TextBoxFor(e => e.EmployeeLastName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(e => e.EmployeeLastName, "", new { @class = "bg-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Age : @Html.TextBoxFor(e => e.Age, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(e => e.Age, "", new { @class = "bg-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                <br />
+                                Gender : @Html.RadioButtonFor(s => s.Gender, new { @class = "form-check-input" })<span> Male</span>
+                                @Html.RadioButtonFor(s => s.Gender, new { @class = "form-check-input" })<span> Female</span>
+                                @Html.ValidationMessageFor(s => s.Gender, "", new { @class = "bg-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                Address : @Html.TextAreaFor(s => s.Address, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(s => s.Address, "", new { @class = "bg-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                Phone Number  :@Html.TextBoxFor(s => s.PhoneNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(s => s.PhoneNumber, "", new { @class = "bg-danger" })
+
+                            </div>
+                            <div class="col-md-4">
+                                Email Id : @Html.TextBoxFor(s => s.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(s => s.Email, "", new { @class = "bg-danger" })
+
+                            </div>
+
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6" style="text-align:right">
+
+                                <input type="submit" value="Register" class="btn btn-primary" />
+
+                            </div>
+                            <div class="col-md-6" style="text-align:left">
+                                <input type="reset" value="Reset" class="btn btn-danger" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            </div>
+      
+</section>
+
